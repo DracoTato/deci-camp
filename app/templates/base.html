@@ -7,9 +7,9 @@
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
   </head>
   <body>
-    <ul class"messages">
+    <ul class="messages">
       {% for msg in get_flashed_messages() %}
-      <li>{{ msg }}</li>
+      <li onclick="this.remove()">{{ msg }}</li>
       {% endfor %}
     </ul>
   {% block body %}

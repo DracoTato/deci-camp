@@ -17,9 +17,20 @@ body {
   display: flex;
   flex-direction: column;
   position: fixed;
-  top: 32;
-  right: 50%;
-  translate: 0% -50%;
+  top: 32px;
+  left: 50%;
+  translate: -50% 0%;
+  list-style-type: none;
+  gap: 24px;
+}
+
+.messages li {
+  background: #a7cced;
+  border: 2px solid black;
+  padding: 12px 24px;
+  font-weight: bold;
+  user-select: none;
+  cursor: pointer;
 }
 
 .timer-container {
