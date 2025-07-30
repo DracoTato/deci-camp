@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+<form action="{{ form_action }}" method="post">
+      {{ form.hidden_tag() }}
+
+      {% for field in form if field.name != 'csrf_token' %}
+      <div class="input">
+          {% if form.is_required(field) %}
+          <span>
+              {{ field.label }}
+              <span class="required">*</span>
+          </span>
+          {% else %}
+          {{ field.label }}
+          {% endif %}
+
+          {% if field.type == "RadioField" %}
+          {{ field(class="radio") }}
+          {% else %}
+          {{ field }}
+          {% endif %}
+
+          {% if field.errors %}
+          <ul class="input-errors">
+              {% for err in field.errors %}
+              <li>{{ err }}</li>
+              {% endfor %}
+          </ul>
+          {% endif %}
+      </div>
+      {% endfor %}
+
+      {% block extra_fields %} {% endblock %}
+      <hr>
+      <button class="btn" type="submit">Submit</button>
+      <a class="btn ghost" href="{{ sec_btn_href }}">{{ sec_btn_txt}}</a>
+  </form>
+{% endblock body %}

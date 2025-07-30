@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="timer-container">
+  <p>Today's usage</p>
+  <h1 id="timer">00:00</h1>
+  <p>Max Daily usage: 3h</p>
+</div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock body %}
